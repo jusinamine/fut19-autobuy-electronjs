@@ -1,0 +1,14 @@
+{
+  "name": "futautoby",
+  "version": "1.0.0",
+  "description": "auto buy players of fifacoins and igyvolt",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "benkorreche mohammed el amine",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^5.0.0"
+  }
+}
