@@ -37,6 +37,22 @@ body{
     font-size: 12px;
     border: none;
 }
+.del{
+    width: 30px;
+}
+.del > div{
+    width: 18px;
+    height: 18px;
+    background-image: url('../images/del-icon.svg');
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    visibility: hidden;
+}
+.del > div:hover{
+    opacity: .8;
+}
 #bar-title{
     margin-top: 10px;
 }
@@ -58,7 +74,7 @@ body{
 .email{
     width: 70% !important;
     position: relative;
-    
+    padding-top: 1px;
 }
 .connect{
     width: 15%;
@@ -234,7 +250,7 @@ body{
 form div{
     width: 100%;
 }
-input[type="text"],input[type="password"]{
+input[type="email"],input[type="password"]{
     width:30vw;
     height: 30px;
     min-width: 122px;

@@ -21,15 +21,8 @@
             <div id="bar-title" class="col text-center">Accounts list</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex flex-row">
+                    <div class="del"><div></div></div>
                     <div class="email text-truncate">amine.benk27@gmail.com</div>
-                    <div class = "connect"><label class = "switch"><input type = "checkbox"><div class = "slider round"></div></div>
-                </li>
-                <li class="list-group-item d-flex flex-row">
-                    <div class="email text-truncate">ahlem.ben@gmail.com</div>
-                    <div class = "connect"><label class = "switch"><input type = "checkbox"><div class = "slider round"></div></div>
-                </li>
-                <li class="list-group-item d-flex flex-row">
-                    <div class="email text-truncate">wafa.bella50@outlook.fr</div>
                     <div class = "connect"><label class = "switch"><input type = "checkbox"><div class = "slider round"></div></div>
                 </li>
                 
@@ -83,7 +76,7 @@
                 <form>
                     <div class="container ">
                         <div class="container text-left champ d-flex justify-content-center"><div>Email</div></div>
-                        <div class="container d-flex justify-content-center"><input type="text" name="email"></div>
+                        <div class="container d-flex justify-content-center"><input type="email" name="email"></div>
                         <div class="container text-left champ d-flex justify-content-center"><div>Password</div></div>
                         <div class="container d-flex justify-content-center"><input type="password" name="password"></div>
                         <div class="err-msg container text-center  d-flex justify-content-center"><div>email or password is empty</div></div>
@@ -98,8 +91,8 @@
         </div>
     </div>
 
-    <script src="js/jquery/jquery.js"></script>
+    <script>window.$ = window.jQuery = require('./js/jquery/jquery.js');</script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/script.js" type="text/javascript"></script>
 </body>
 </html>

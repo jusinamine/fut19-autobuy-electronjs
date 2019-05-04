@@ -1,17 +1,18 @@
-const electron = require('electron')
-const app = electron.app
-const BrowserWindow = electron.BrowserWindow
-const path = require('path')
-var fs = require('fs')
+
+const {ipcMain,app,BrowserWindow} = require('electron');
+const path = require('path');
+var fs = require('fs');
 let mainWindow = null
 
 const createWindow = () => {
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 800, height: 600,minHeight:300,minWidth:400,webPreferences: {
+    nodeIntegration: true
+  }});
   mainWindow.loadURL(require('url').format({
     pathname: path.join(__dirname, 'static/index.html'),
     protocol: 'file:',
     slashes: true
-  }))
+  }));
   mainWindow.webContents.openDevTools()
   mainWindow.on('closed', () => {
     mainWindow = null
@@ -36,3 +37,15 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+ipcMain.on('requestHandler', (event, data) => {
+  if (data.type === 'addAccount'){
+    fs.readFile('accounts.json', (err, value) => {  
+      if (err) throw err;
+      let accounts = JSON.parse(value);
+      accounts[0][data.email] =  {"password":data.password}
+      fs.writeFileSync('accounts.json', JSON.stringify(accounts)); 
+  });
+    
+  }
+});
