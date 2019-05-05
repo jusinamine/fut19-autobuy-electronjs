@@ -39,13 +39,21 @@ app.on('activate', () => {
 })
 
 ipcMain.on('requestHandler', (event, data) => {
+
   if (data.type === 'addAccount'){
     fs.readFile('accounts.json', (err, value) => {  
       if (err) throw err;
       let accounts = JSON.parse(value);
       accounts[0][data.email] =  {"password":data.password}
       fs.writeFileSync('accounts.json', JSON.stringify(accounts)); 
-  });
-    
+    }); 
+  }
+  if (data.type === 'deleteAccount'){
+    fs.readFile('accounts.json', (err, value) => {  
+      if (err) throw err;
+      let accounts = JSON.parse(value);
+      delete accounts[0][data.email];
+      fs.writeFileSync('accounts.json', JSON.stringify(accounts));
+    });
   }
 });
