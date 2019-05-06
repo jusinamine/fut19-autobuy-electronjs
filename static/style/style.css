@@ -14,6 +14,7 @@ body{
     background-color: #000000;
     color: #f9880a;
     font-family: 'Ubuntu';
+    overflow: hidden;
 }
 .main-container{
     height: 100%;
@@ -127,20 +128,20 @@ body{
 }
 
 /* scroll */
-.buy-status > div::-webkit-scrollbar {
+.buy-status > div,.accounts-cn::-webkit-scrollbar {
     width: 3px;
     height: 0;
 }
  
-.buy-status > div::-webkit-scrollbar-track {
+.buy-status > div,.accounts-cn::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
  
-.buy-status > div::-webkit-scrollbar-thumb {
+.buy-status > div,.accounts-cn::-webkit-scrollbar-thumb {
   background-color: #f9880a;
   outline: 1px solid #f9880a;
 }
-.buy-status > div:hover, #ID:active, #ID:focus {
+.buy-status > div,.accounts-cn:hover, #ID:active, #ID:focus {
     overflow: auto;
   }
 
@@ -318,13 +319,55 @@ input[type="email"],input[type="password"]{
     z-index: 100;
 }
 .title-confirm-alert{
-    height: 35%;
+    height: 20%;
     width: 100%;
     font-size: 12px;
     color: #f9f9f9;
     padding-top: 2px;
 }
-
+/* select alert */
+.select-alert{
+    max-width: 318px;
+    min-width: 217px;
+    width: 50%;
+    height: 250px;
+    border-radius: 4px;
+    background-color: #f9880a;
+    position: relative;
+    padding: 0 !important;
+    display: none;
+    z-index: 100;
+    overflow: hidden;
+}
+.title-select-alert{
+    height: 18%;
+    width: 100%;
+    font-size: 15px;
+    color: #f9f9f9;
+    padding-top: 5%;
+}
+.accounts-cn{
+    height: 75%;
+    width: 40vw;
+    vertical-align: middle;
+    font-size: 12px;
+    background-color: #f0f0f0;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.select-email{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+.select-email:hover{
+    color: #f9f9f9;
+    background-color: #f9880a;
+}
 @media only screen and (min-width: 568px) {
     .title-confirm-alert{
         padding-top: 10px;

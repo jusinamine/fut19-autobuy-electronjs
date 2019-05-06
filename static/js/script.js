@@ -5,6 +5,9 @@ $.fn.createEmailBlock = function (email){
     
     $(".list-group").append(`<li class="list-group-item d-flex flex-row"><div class="del"><div onclick="deleteAccount(event)"></div></div><div class="email text-truncate">${email}</div><div class = "connect"><label class = "switch"><input type = "checkbox"><div class = "slider round"></div></div></li>`);
 }
+$.fn.createSelectedEmail = function (email){
+    $(".accounts-cn").append(`<div class="select-email">${email}</div>`);
+}
 //confirm delete account
 function deleteAccount(event){
     $(document).ready(function(){
@@ -68,6 +71,18 @@ $(document).ready(function(){
         $('.confirm-alert').css('display','none');
         $(".alert-box").css('display','none'); 
     });
-    
+    //select account
+    $('#select-acc').click(function(){
+        for(elm of $('input[type=checkbox]:checked')){
+            $(".accounts-cn").createSelectedEmail($($($(elm).parents()[2]).children()[1]).text())
+        }
+        $('.costum-alert').css('visibility','visible');
+        $('.select-alert').css('display','block');
+        $('.select-email').click(function(){
+            console.log($(this).text());
+            
+            
+        })
+    });
     
 })
