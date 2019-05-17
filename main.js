@@ -1,7 +1,8 @@
 
 const {ipcMain,app,BrowserWindow} = require('electron');
 const path = require('path');
-var fs = require('fs');
+const fetch = require("node-fetch");
+const fs = require('fs');
 let mainWindow = null
 
 
@@ -100,7 +101,7 @@ ipcMain.on('requestHandler', (event, data) => {
     fs.readFile('accounts.json', (err, value) => {  
       if (err) throw err;
       let accounts = JSON.parse(value);
-      accounts[0][data.email] =  {"password":data.password}
+      accounts[0][data.email] =  {"password":data.password,"token":"","cookies":""}
       fs.writeFileSync('accounts.json', JSON.stringify(accounts)); 
     }); 
   }
@@ -111,6 +112,11 @@ ipcMain.on('requestHandler', (event, data) => {
       delete accounts[0][data.email];
       fs.writeFileSync('accounts.json', JSON.stringify(accounts));
     });
+  }
+  if(data.type === 'login'){
+    fetch(`http://127.0.0.1:5000/login?email=${data.email}&password=${data.password}&cookies=${data.cookies}&token=${data.token}`)
+      .then(res => res.json())
+      .then(data => console.log(data));
   }
 });
 

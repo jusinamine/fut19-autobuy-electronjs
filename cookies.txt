@@ -1,8 +1,0 @@
-#LWP-Cookies-2.0
-Set-Cookie3: _nx_mpcid="17fb21a1-d45a-4e37-ae8d-9eb107711ce3"; path="/"; domain=".ea.com"; path_spec; domain_dot; secure; expires="2024-04-12 00:02:54Z"; HttpOnly=None; version=0
-Set-Cookie3: remid="TUU6eHdiUDIyVXJFdEg3dWlyRjdKdDhGZ2M2T1hyeUE1U2RCTDdhUThiNTowNTA5Mzc5NDI.bodgNoQaohyfvdNpVT2uQjlAijLr74unZvNO4nrK"; path="/connect"; domain="accounts.ea.com"; path_spec; secure; expires="2019-07-08 00:02:54Z"; HttpOnly=None; version=0
-Set-Cookie3: sid="U3p6bXMzR1JCZEZYV0FmOWhlM2RqbXVOallKWFVod2JPM2diR2tSMjRnSENTdm4xMU94TGF5YzM4RjhjRg.EExvhifISLV8WSFjwXBMkQCw3YzKifMlyBgRI05jXUw"; path="/connect"; domain="accounts.ea.com"; path_spec; secure; discard; HttpOnly=None; version=0
-Set-Cookie3: isPhone=false; path="/"; domain="signin.ea.com"; path_spec; secure; expires="2019-05-16 00:02:18Z"; HttpOnly=None; version=0
-Set-Cookie3: isPogo=false; path="/"; domain="signin.ea.com"; path_spec; secure; expires="2019-05-16 00:02:18Z"; HttpOnly=None; version=0
-Set-Cookie3: webun="\"futcomptebuy7@outlook.com\""; path="/"; domain="signin.ea.com"; path_spec; secure; expires="2019-05-16 00:02:18Z"; HttpOnly=None; version=0
-Set-Cookie3: JSESSIONID="27DD4AFD710FA67E6DC25C11AECF0444.prdaccountc-52"; path="/p"; domain="signin.ea.com"; path_spec; secure; discard; HttpOnly=None; version=0

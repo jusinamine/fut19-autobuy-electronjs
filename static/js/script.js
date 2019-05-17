@@ -3,7 +3,7 @@ var delClick = 0;
 
 $.fn.createEmailBlock = function (email){
     
-    $(".list-group").append(`<li class="list-group-item d-flex flex-row"><div class="del"><div onclick="deleteAccount(event)"></div></div><div class="email text-truncate">${email}</div><div class = "connect"><label class = "switch"><input type = "checkbox"><div class = "slider round"></div></div></li>`);
+    $(".list-group").append(`<li class="list-group-item d-flex flex-row"><div class="del"><div onclick="deleteAccount(event)"></div></div><div class="email text-truncate">${email}</div><div class = "connect"><label class = "switch"><input type = "checkbox"><div class = "slider round" onclick="connectAccount(event)"></div></div></li>`);
 }
 $.fn.createSelectedEmail = function (email){
     $(".accounts-cn").append(`<div class="select-email">${email}</div>`);
@@ -27,6 +27,30 @@ function deleteAccount(event){
         });
     });
 }
+// connect to ea when toggle is active
+function connectAccount(e) {
+    $(document).ready(function(){
+        if($($(e.target).parents()[0].firstChild).is(':checked')){
+            let email = $($($(e.target).parents()[2]).children()[1]).text();
+            $.getJSON('../accounts.json',function(data){
+                var data = {"email":email,"password":data[0][email]['password'],"token":data[0][email]['token'],"cookies":data[0][email]['cookies'],"type":"login"}
+                ipcRenderer.send('requestHandler', data);
+            });
+        }
+    });
+}
+/* {
+                fetch("http://127.0.0.1:5000/login",{
+                    method: "POST",
+                    body: JSON.stringify({"email":email,"password":data[0][email]['password'],"token":data[0][email]['token'],"cookies":data[0][email]['cookies']}),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+
+                })
+                .then(res => res.json())
+                .then(data => console.log(data));
+                } */
 $(document).ready(function(){
 
     //read data accounts and put inside left menu
@@ -84,5 +108,4 @@ $(document).ready(function(){
             
         })
     });
-    
 })
