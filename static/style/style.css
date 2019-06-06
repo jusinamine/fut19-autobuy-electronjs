@@ -111,6 +111,48 @@ body{
 .value-info{
     color: #f9f9f9;
 }
+/* choose seller */ 
+#choose-seller{
+    color: #f0f0f0;
+    font-size: 12px;
+    border-radius: 2px;
+    margin-top: 10px;
+}
+#choose-seller .col-4{
+    cursor: pointer;
+}
+#choose-seller .col-4:hover{
+    background-color: #f9880a !important
+}
+.info-seller{
+    padding: 10px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color: #171717;
+    display: none;
+}
+.info-seller .col{
+    padding: 10px
+}
+.input-sl-info{
+    height: 25px;
+    margin: 5px;
+    outline: none;
+    border: 0;
+    border-radius: 2px;
+    font-size: 10px;
+    text-align: center;
+}
+input[name=save-sl]{
+    height: 25px;
+    width: 75px;
+    border: 0;
+    font-size: 10px;
+    background-color: #f9880a;
+    color: #f0f0f0;
+    border-radius: 2px;
+    cursor: pointer;
+}
 /* table status */
 .buy-status{
     display: none;
@@ -128,20 +170,20 @@ body{
 }
 
 /* scroll */
-.buy-status > div,.accounts-cn::-webkit-scrollbar {
+.buy-status > div .accounts-cn::-webkit-scrollbar {
     width: 3px;
     height: 0;
 }
  
-.buy-status > div,.accounts-cn::-webkit-scrollbar-track {
+.buy-status > div .accounts-cn::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
  
-.buy-status > div,.accounts-cn::-webkit-scrollbar-thumb {
+.buy-status > div .accounts-cn::-webkit-scrollbar-thumb {
   background-color: #f9880a;
   outline: 1px solid #f9880a;
 }
-.buy-status > div,.accounts-cn:hover, #ID:active, #ID:focus {
+.buy-status > div .accounts-cn:hover, #ID:active, #ID:focus {
     overflow: auto;
   }
 

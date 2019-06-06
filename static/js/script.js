@@ -96,16 +96,52 @@ $(document).ready(function(){
         $(".alert-box").css('display','none'); 
     });
     //select account
+    let emailSelected;
     $('#select-acc').click(function(){
+        /*fetch('http://127.0.0.1:5000/account/logged')
+        .then(res => res.json())
+        .then(data => {
+            for(elm of data['data']){
+                $(".accounts-cn").createSelectedEmail(elm)
+            }
+        })*/
         for(elm of $('input[type=checkbox]:checked')){
             $(".accounts-cn").createSelectedEmail($($($(elm).parents()[2]).children()[1]).text())
         }
         $('.costum-alert').css('visibility','visible');
         $('.select-alert').css('display','block');
         $('.select-email').click(function(){
-            console.log($(this).text());
-            
-            
-        })
+            emailSelected = $(this).text();
+            $('.costum-alert').css('visibility','hidden');
+            $('.select-alert').css('display','none');
+        });
+        $('#start-buy').prop("disabled", false);
     });
+    //start auto buy
+    $('#start-buy').click(function(){
+        let data = {"email":emailSelected,"type":"startBuy"}
+        ipcRenderer.send('requestHandler', data) 
+    })
+    //save info of mmoga - igvault - fifaoins
+    var clickMmoga = 0
+    $('.sel').click(function(){
+        
+        $('.sel').css('background-color','#000000');
+        $(this).css('background-color','#f9880a');
+        if($(this).text() === "MMOGA" & clickMmoga === 0){
+            clickMmoga = 1;
+            $('.info-seller').slideDown();
+        }else{
+            if(clickMmoga === 1){
+                $(this).css('background-color','#000000');
+                $('.info-seller').slideUp();
+                clickMmoga = 0;
+            }
+        }
+    });
+    $('input[name=save-sl]').click(function(){
+        $('.sel').css('background-color','#000000');
+        $('.info-seller').slideUp();
+        clickMmoga = 0;
+    })
 })

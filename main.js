@@ -3,6 +3,7 @@ const {ipcMain,app,BrowserWindow} = require('electron');
 const path = require('path');
 const fetch = require("node-fetch");
 const fs = require('fs');
+const funct = require('./functions')
 let mainWindow = null
 
 
@@ -117,6 +118,9 @@ ipcMain.on('requestHandler', (event, data) => {
     fetch(`http://127.0.0.1:5000/login?email=${data.email}&password=${data.password}&cookies=${data.cookies}&token=${data.token}`)
       .then(res => res.json())
       .then(data => console.log(data));
+  }
+  if(data.type === 'startBuy'){
+    console.log(data.email);
   }
 });
 

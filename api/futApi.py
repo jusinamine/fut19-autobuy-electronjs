@@ -7,6 +7,7 @@ accounts_log = {}
 @app.route('/')
 def hello():
     return jsonify({"ee":"eeeee"})
+
 @app.route('/login', methods=['GET'])
 def ea_login():
     email = request.args.get('email')
@@ -54,4 +55,7 @@ def get_coins():
     else:
         return jsonify({"data":"not logged in"})
 
+@app.route('/account/logged')
+def get_logged():
+    return jsonify({"data":[acc for acc in accounts_log.keys()]})
 app.run(debug=True)
